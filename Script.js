@@ -8,8 +8,8 @@ auto.addEventListener('keyup', function(){
 	while (autores.hasChildNodes()) {   
 	autores.removeChild(autores.firstChild);
 	}
-	while(auto.value == ''){
-		autores.removeChild(autores.firstChild);	
+	while(!auto.value){
+		autores.removeChild(autores.firstChild);
 	}
 
 	var val = ['test1','test2','test3','abhishek','gurjar']
@@ -40,15 +40,15 @@ auto.addEventListener('keyup', function(){
 })
 function rotate(y){
 	y.addEventListener('keydown',function(e){
-		if(e.keyCode == 40){
+		if(e.keyCode == 40 && y.nextSibling){
 			y.nextSibling.focus()
 			auto.value = y.nextSibling.innerHTML
 		}
 		else if(e.keyCode == 38){
 			if(!y.previousSibling){
-				console.log(tempVal)
 				auto.value = tempVal
 				auto.focus()
+				auto.value = auto.value
 			}
 			else{
 				y.previousSibling.focus()
