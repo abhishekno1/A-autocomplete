@@ -6,7 +6,7 @@ auto.addEventListener('keyup', function(){
 	//console.log(document.getElementById('auto').style.left)
 	tempVal = auto.value
 	while (autores.hasChildNodes()) {   
-	autores.removeChild(autores.firstChild);
+		autores.removeChild(autores.firstChild);
 	}
 	while(!auto.value){
 		autores.removeChild(autores.firstChild);
@@ -15,9 +15,9 @@ auto.addEventListener('keyup', function(){
 	var val = ['test1','test2','test3','abhishek','gurjar']
 
 	function matcher(match) {
-	if (match.includes(auto.value)){
-		return match
-	}
+		if (match.includes(auto.value)){
+			return match
+		}
 	}
 
 	res = val.filter(matcher);
