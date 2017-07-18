@@ -1,3 +1,3 @@
 # A-autocomplete
 
-Autocomplete in script in Vanillajs currently in development
+Autocomplete script in Vanillajs currently in development
