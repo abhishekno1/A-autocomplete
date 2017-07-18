@@ -1,8 +1,10 @@
 var auto = document.getElementById('auto')
 var autores = document.getElementById('autores')
+var tempVal = ''
 Object.assign(autores.style,{listStyle:'none',width:'100%',position:'absolute',top:'13px',right:'-10px'});
 auto.addEventListener('keyup', function(){
 	//console.log(document.getElementById('auto').style.left)
+	tempVal = auto.value
 	while (autores.hasChildNodes()) {   
 	autores.removeChild(autores.firstChild);
 	}
@@ -32,6 +34,7 @@ auto.addEventListener('keyup', function(){
 	auto.addEventListener('keydown',function(e){
 		if(e.keyCode == 40){
 			autores.firstChild.focus()
+			auto.value = autores.firstChild.innerHTML
 		}
 	})
 })
@@ -39,9 +42,18 @@ function rotate(y){
 	y.addEventListener('keydown',function(e){
 		if(e.keyCode == 40){
 			y.nextSibling.focus()
+			auto.value = y.nextSibling.innerHTML
 		}
 		else if(e.keyCode == 38){
-			y.previousSibling.focus()
+			if(!y.previousSibling){
+				console.log(tempVal)
+				auto.value = tempVal
+				auto.focus()
+			}
+			else{
+				y.previousSibling.focus()
+				auto.value = y.previousSibling.innerHTML
+			}
 		}
 		else if(e.keyCode == 13){
 			auto.value = y.innerHTML
