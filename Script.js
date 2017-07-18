@@ -10,7 +10,7 @@ auto.addEventListener('keyup', function(){
 		autores.removeChild(autores.firstChild);	
 	}
 
-	var val = ['test1','test2','test3','as']
+	var val = ['test1','test2','test3','abhishek','gurjar']
 
 	function matcher(match) {
 	if (match.includes(auto.value)){
@@ -22,12 +22,35 @@ auto.addEventListener('keyup', function(){
 	for(let i = 0; i < res.length; i++){
 		var li = document.createElement('li')
 		li.setAttribute('id','autolist')
+		li.setAttribute('tabindex',0)
+		li.setAttribute('onkeyup','rotate(this)')
 		li.setAttribute('onclick','select(this.innerHTML)')
 		Object.assign(li.style,{border:'1px solid',width:'171px',height:'15'});
 		li.innerHTML = res[i]
 		autores.appendChild(li)
 	}
+	auto.addEventListener('keydown',function(e){
+		if(e.keyCode == 40){
+			autores.firstChild.focus()
+		}
+	})
 })
+function rotate(y){
+	y.addEventListener('keydown',function(e){
+		if(e.keyCode == 40){
+			y.nextSibling.focus()
+		}
+		else if(e.keyCode == 38){
+			y.previousSibling.focus()
+		}
+		else if(e.keyCode == 13){
+			auto.value = y.innerHTML
+			while(auto.value == y.innerHTML){
+				autores.removeChild(autores.firstChild);	
+			}
+		}
+	})
+}
 function select(x){
 	auto.value = x
 	while(auto.value == x){
