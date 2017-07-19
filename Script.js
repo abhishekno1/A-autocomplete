@@ -55,6 +55,8 @@ function automata (id,data){
 			if(e.keyCode == 40){
 				autores.firstChild.focus()
 				auto.value = autores.firstChild.innerHTML
+				autores.firstChild.style.backgroundColor = "blue"
+				autores.firstChild.style.color = "white"
 			}
 		})
 	})					
@@ -62,6 +64,10 @@ function automata (id,data){
 automata.rotate = function(y){
 	y.addEventListener('keydown',function(e){
 		if(e.keyCode == 40 && y.nextSibling){
+			y.nextSibling.style.backgroundColor = "blue"
+			y.nextSibling.style.color = "white"
+			this.style.color = "black"
+			this.style.backgroundColor = "white"
 			y.nextSibling.focus()
 			auto.value = y.nextSibling.innerHTML
 		}
@@ -72,6 +78,10 @@ automata.rotate = function(y){
 				auto.value = auto.value
 			}
 			else{
+				y.previousSibling.style.backgroundColor = "blue"
+				y.previousSibling.style.color = "white"
+				this.style.color = "black"
+				this.style.backgroundColor = "white"
 				y.previousSibling.focus()
 				auto.value = y.previousSibling.innerHTML
 			}
